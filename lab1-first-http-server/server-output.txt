@@ -1,0 +1,67 @@
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+[2026-11-02T18:09:27] GET http://127.0.0.1:3000/
+127.0.0.1 - - [02/Nov/2026 18:09:27] "GET / HTTP/1.1" 200 -
+[2026-11-02T18:09:27] GET http://127.0.0.1:3000/api/employees
+127.0.0.1 - - [02/Nov/2026 18:09:27] "GET /api/employees HTTP/1.1" 200 -
+[2026-11-02T18:09:27] GET http://127.0.0.1:3000/api/offices
+127.0.0.1 - - [02/Nov/2026 18:09:27] "GET /api/offices HTTP/1.1" 200 -
+[2026-11-02T18:09:27] GET http://127.0.0.1:3000/api/employees/5
+127.0.0.1 - - [02/Nov/2026 18:09:27] "GET /api/employees/5 HTTP/1.1" 200 -
+[2026-11-02T18:09:27] GET http://127.0.0.1:3000/not-found
+127.0.0.1 - - [02/Nov/2026 18:09:27] "GET /not-found HTTP/1.1" 404 -
+[2026-11-02T18:09:27] GET http://127.0.0.1:3000/api/employees/ivan
+127.0.0.1 - - [02/Nov/2026 18:09:27] "GET /api/employees/ivan HTTP/1.1" 404 -
+[2026-11-02T18:09:27] GET http://127.0.0.1:3000/api/employees/5?view=short
+127.0.0.1 - - [02/Nov/2026 18:09:27] "GET /api/employees/5?view=short HTTP/1.1" 200 -
+ * Detected change in 'app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+[2026-11-02T18:09:58] GET http://127.0.0.1:3000/
+127.0.0.1 - - [02/Nov/2026 18:09:58] "GET / HTTP/1.1" 200 -
+[2026-11-02T18:09:58] GET http://127.0.0.1:3000/favicon.ico
+127.0.0.1 - - [02/Nov/2026 18:09:58] "GET /favicon.ico HTTP/1.1" 404 -
+[2026-11-02T18:10:52] GET http://127.0.0.1:3000/api/employees
+127.0.0.1 - - [02/Nov/2026 18:10:52] "GET /api/employees HTTP/1.1" 200 -
+[2026-11-02T18:10:53] GET http://127.0.0.1:3000/api/offices
+127.0.0.1 - - [02/Nov/2026 18:10:53] "GET /api/offices HTTP/1.1" 200 -
+[2026-11-02T18:10:53] GET http://127.0.0.1:3000/api/employees/5
+127.0.0.1 - - [02/Nov/2026 18:10:53] "GET /api/employees/5 HTTP/1.1" 200 -
+[2026-11-02T18:10:53] GET http://127.0.0.1:3000/not-found
+127.0.0.1 - - [02/Nov/2026 18:10:53] "GET /not-found HTTP/1.1" 404 -
+[2026-11-02T18:11:35] GET http://127.0.0.1:3000/
+127.0.0.1 - - [02/Nov/2026 18:11:35] "GET / HTTP/1.1" 200 -
+[2026-11-02T18:11:35] GET http://127.0.0.1:3000/
+127.0.0.1 - - [02/Nov/2026 18:11:35] "GET / HTTP/1.1" 200 -
+[2026-11-02T18:11:36] GET http://127.0.0.1:3000/
+127.0.0.1 - - [02/Nov/2026 18:11:36] "GET / HTTP/1.1" 200 -
+[2026-11-02T18:11:36] GET http://127.0.0.1:3000/
+127.0.0.1 - - [02/Nov/2026 18:11:36] "GET / HTTP/1.1" 200 -
+ * Detected change in 'app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+[2026-11-02T18:11:36] GET http://127.0.0.1:3000/
+127.0.0.1 - - [02/Nov/2026 18:11:36] "GET / HTTP/1.1" 200 -
+[2026-11-02T18:11:36] GET http://127.0.0.1:3000/
+127.0.0.1 - - [02/Nov/2026 18:11:36] "GET / HTTP/1.1" 200 -
+[2026-11-02T18:11:36] GET http://127.0.0.1:3000/
+127.0.0.1 - - [02/Nov/2026 18:11:36] "GET / HTTP/1.1" 200 -
+[2026-11-02T18:11:36] GET http://127.0.0.1:3000/
+127.0.0.1 - - [02/Nov/2026 18:11:36] "GET / HTTP/1.1" 200 -
+[2026-11-02T18:11:37] GET http://127.0.0.1:3000/
+127.0.0.1 - - [02/Nov/2026 18:11:37] "GET / HTTP/1.1" 200 -
+[2026-11-02T18:11:37] GET http://127.0.0.1:3000/
+127.0.0.1 - - [02/Nov/2026 18:11:37] "GET / HTTP/1.1" 200 -
+ * Detected change in 'app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+[2026-11-02T18:11:37] GET http://127.0.0.1:3000/
+127.0.0.1 - - [02/Nov/2026 18:11:37] "GET / HTTP/1.1" 200 -
+
+PASS после изменения app.py получен ответ Backend reload check
+PASS после восстановления app.py получен ответ Backend is ready

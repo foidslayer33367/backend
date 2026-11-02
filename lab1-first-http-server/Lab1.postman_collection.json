@@ -1,0 +1,208 @@
+{
+  "info": {
+    "name": "Лабораторная работа 1 - Flask",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET 3000/",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://127.0.0.1:3000/"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET 3000/api/employees",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://127.0.0.1:3000/api/employees"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"JSON response\", function () { pm.response.to.be.json; });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET 3000/api/offices",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://127.0.0.1:3000/api/offices"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"JSON response\", function () { pm.response.to.be.json; });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET 3000/api/employees/5",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://127.0.0.1:3000/api/employees/5"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"JSON response\", function () { pm.response.to.be.json; });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET 3000/not-found",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://127.0.0.1:3000/not-found"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });",
+              "pm.test(\"JSON response\", function () { pm.response.to.be.json; });",
+              "pm.test(\"Not Found body\", function () { pm.expect(pm.response.json()).to.eql({error: \"Not Found\"}); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET 3001/",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://127.0.0.1:3001/"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET 3001/api/status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://127.0.0.1:3001/api/status"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"JSON response\", function () { pm.response.to.be.json; });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET 3001/api/info",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://127.0.0.1:3001/api/info"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"JSON response\", function () { pm.response.to.be.json; });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET 3001/api/users/5",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://127.0.0.1:3001/api/users/5"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"JSON response\", function () { pm.response.to.be.json; });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET 3001/anything-else",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://127.0.0.1:3001/anything-else"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });",
+              "pm.test(\"JSON response\", function () { pm.response.to.be.json; });",
+              "pm.test(\"Not Found body\", function () { pm.expect(pm.response.json()).to.eql({error: \"Not Found\"}); });"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
