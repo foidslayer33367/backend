@@ -1,0 +1,12 @@
+[2026-11-02T12:45:59] GET http://localhost/
+[2026-11-02T12:45:59] GET http://localhost/api/employees
+[2026-11-02T12:45:59] GET http://localhost/api/offices
+[2026-11-02T12:45:59] GET http://localhost/api/employees/5
+[2026-11-02T12:45:59] GET http://localhost/not-found
+[2026-11-02T12:45:59] GET http://localhost/api/employees/ivan
+[2026-11-02T12:45:59] GET http://localhost/api/employees/5?view=short
+[2026-11-02T12:45:59] GET http://localhost/
+[2026-11-02T12:45:59] GET http://localhost/api/status
+[2026-11-02T12:45:59] GET http://localhost/api/info
+[2026-11-02T12:45:59] GET http://localhost/api/users/5
+[2026-11-02T12:45:59] GET http://localhost/anything-else

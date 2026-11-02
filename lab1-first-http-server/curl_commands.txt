@@ -1,0 +1,12 @@
+# Индивидуальное задание (python app.py)
+curl -i http://127.0.0.1:3000/
+curl -i http://127.0.0.1:3000/api/employees
+curl -i http://127.0.0.1:3000/api/offices
+curl -i http://127.0.0.1:3000/api/employees/5
+curl -i http://127.0.0.1:3000/not-found
+# Практический пример (python example.py)
+curl -i http://127.0.0.1:3001/
+curl -i http://127.0.0.1:3001/api/status
+curl -i http://127.0.0.1:3001/api/info
+curl -i http://127.0.0.1:3001/api/users/5
+curl -i http://127.0.0.1:3001/anything-else

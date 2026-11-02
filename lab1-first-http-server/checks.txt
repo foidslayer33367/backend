@@ -1,0 +1,64 @@
+Проверка встроенным тест-клиентом Flask (без сетевого сервера)
+
+app.py: GET /
+HTTP 200
+Content-Type: text/plain; charset=utf-8
+Backend is ready
+
+app.py: GET /api/employees
+HTTP 200
+Content-Type: application/json
+[{"id":1,"name":"Иван Иванов","position":"Developer"},{"id":2,"name":"Анна Петрова","position":"Designer"},{"id":3,"name":"Сергей Смирнов","position":"Manager"}]
+
+app.py: GET /api/offices
+HTTP 200
+Content-Type: application/json
+[{"address":"ул. Мира, 10","city":"Ставрополь","id":1},{"address":"ул. Центральная, 15","city":"Москва","id":2}]
+
+app.py: GET /api/employees/5
+HTTP 200
+Content-Type: application/json
+{"requestedId":5,"status":"success"}
+
+app.py: GET /not-found
+HTTP 404
+Content-Type: application/json
+{"error":"Not Found"}
+
+app.py: GET /api/employees/ivan
+HTTP 404
+Content-Type: application/json
+{"error":"Not Found"}
+
+app.py: GET /api/employees/5?view=short
+HTTP 200
+Content-Type: application/json
+{"requestedId":5,"status":"success"}
+
+example.py: GET /
+HTTP 200
+Content-Type: text/html; charset=utf-8
+Добро пожаловать на базовый сервер!
+
+example.py: GET /api/status
+HTTP 200
+Content-Type: application/json
+{"framework":"Flask","status":"ok"}
+
+example.py: GET /api/info
+HTTP 200
+Content-Type: application/json
+{"author":"Осипов Герман Юрьевич","version":"1.0.0"}
+
+example.py: GET /api/users/5
+HTTP 200
+Content-Type: application/json
+{"message":"Информация о пользователе","userId":5}
+
+example.py: GET /anything-else
+HTTP 404
+Content-Type: application/json
+{"error":"Not Found"}
+
+Итого: 12 запросов, все проверки пройдены.
+Автоперезапуск задан debug=True; запуск reloader в этой среде недоступен.
