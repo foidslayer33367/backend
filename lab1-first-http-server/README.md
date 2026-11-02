@@ -143,8 +143,6 @@ curl -i http://127.0.0.1:3001/anything-else
 | GET /api/users/5 | 200 | `{"message": "Информация о пользователе", "userId": 5}` |
 | GET /anything-else | 404 | `{"error": "Not Found"}` |
 
-Полный вывод находится в [checks.txt](checks.txt).
-
 Скриншоты практического примера:
 
 ![Корневой маршрут примера](screenshots/example-root.jpg)
@@ -358,7 +356,7 @@ curl -i http://127.0.0.1:3000/not-found
 
 Режим `debug=True` включает автоматический перезапуск при изменении исходного файла. Для проверки после запуска `python app.py` нужно изменить строку приветствия, сохранить `app.py` и обновить страницу. После проверки вернуть исходный текст.
 
-Функция с декоратором `@app.before_request` печатает время, метод и полный URL. Фактические записи проверки сохранены в [requests.txt](requests.txt).
+Функция с декоратором `@app.before_request` печатает время, метод и полный URL.
 
 Пример записи из журнала тест-клиента:
 
@@ -375,7 +373,7 @@ PASS после изменения app.py получен ответ Backend relo
 PASS после восстановления app.py получен ответ Backend is ready
 ```
 
-Полный журнал запуска, запросов и перезапуска сохранён в [server-output.txt](server-output.txt). На снимке ниже показано браузерное представление фрагмента сохранённого вывода команд, а не окно терминала.
+На снимке ниже показано браузерное представление фрагмента сохранённого вывода команд, а не окно терминала.
 
 ![Проверки и журнал сервера](screenshots/checks-log.jpg)
 
@@ -442,9 +440,6 @@ lab1-first-http-server/
 ├── example.py
 ├── requirements.txt
 ├── curl_commands.txt
-├── checks.txt
-├── requests.txt
-├── server-output.txt
 ├── Lab1.postman_collection.json
 └── screenshots/
 ```
