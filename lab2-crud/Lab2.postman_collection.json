@@ -1,0 +1,4311 @@
+{
+  "info": {
+    "name": "Лабораторная работа 2 - Осипов",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:3000"
+    },
+    {
+      "key": "example_url",
+      "value": "http://127.0.0.1:3001"
+    }
+  ],
+  "item": [
+    {
+      "name": "Практический пример",
+      "item": [
+        {
+          "name": "Все товары",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{example_url}}/items"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.items).to.be.an(\"array\"); });"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3001",
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "473795cc-64bb-4d7a-82b1-3c934b14470a",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3001",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "256"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"count\":4,\"items\":[{\"id\":1,\"name\":\"Товар 1\",\"price\":100,\"quantity\":5},{\"id\":2,\"name\":\"Товар 2\",\"price\":200,\"quantity\":3},{\"id\":3,\"name\":\"Товар 3\",\"price\":300,\"quantity\":10},{\"id\":4,\"name\":\"Новый товар\",\"price\":500,\"quantity\":7}]}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Один товар",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{example_url}}/items/1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3001",
+                  "path": [
+                    "items",
+                    "1"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "b29e693a-02bb-44b2-84ff-6aea2b5917cf",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3001",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "56"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"id\":1,\"name\":\"Товар 1\",\"price\":100,\"quantity\":5}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Создание товара",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{example_url}}/items",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Новый товар\",\n  \"price\": 500,\n  \"quantity\": 7\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 201\", () => pm.response.to.have.status(201));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.collectionVariables.set(\"item_id\", responseData.id);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3001",
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "70f1e8f5-f25c-4503-8e92-0e6846f083e5",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3001",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "70",
+                    "system": true
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Новый товар\",\n  \"price\": 500,\n  \"quantity\": 7\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "CREATED",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "65"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"id\":5,\"name\":\"Новый товар\",\"price\":500,\"quantity\":7}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Замена товара",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{example_url}}/items/{{item_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Обновлённый товар\",\n  \"price\": 150,\n  \"quantity\": 20\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.price).to.eql(150); });"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3001",
+                  "path": [
+                    "items",
+                    "5"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "836a2214-03a9-4141-98c2-adb361fcf105",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3001",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "83",
+                    "system": true
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Обновлённый товар\",\n  \"price\": 150,\n  \"quantity\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "78"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"id\":5,\"name\":\"Обновлённый товар\",\"price\":150,\"quantity\":20}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Удаление товара",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{example_url}}/items/{{item_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3001",
+                  "path": [
+                    "items",
+                    "5"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "bf7b87c7-11c4-4b22-8515-f67cf2bdb60c",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3001",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "DELETE"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "130"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"deleted\":{\"id\":5,\"name\":\"Обновлённый товар\",\"price\":150,\"quantity\":20},\"message\":\"Элемент удалён\"}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Товар после удаления",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{example_url}}/items/{{item_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 404\", () => pm.response.to.have.status(404));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3001",
+                  "path": [
+                    "items",
+                    "5"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "f122a6ea-c37c-4ebc-967c-bc93a6af2de3",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3001",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "NOT FOUND",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "45"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"error\":\"Элемент не найден\"}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Неверные данные товара",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{example_url}}/items",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 50\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 400\", () => pm.response.to.have.status(400));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3001",
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "fb75f5c9-5218-4c3d-882b-4bfff53579ed",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3001",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "17",
+                    "system": true
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"price\": 50\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "BAD REQUEST",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "49"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"error\":\"Поле name обязательно\"}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Автомобили",
+      "item": [
+        {
+          "name": "Очистка перед запуском",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/cars"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 204\", () => pm.response.to.have.status(204));",
+                  "pm.test(\"Пустое тело\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "abbb920e-de24-47a3-878f-7535081f4e6b",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "DELETE"
+              },
+              "status": "NO CONTENT",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Создание трёх автомобилей",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/cars/bulk",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"brand\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"year\": 2020,\n    \"price\": 1800000\n  },\n  {\n    \"brand\": \"Toyota\",\n    \"model\": \"Camry\",\n    \"year\": 2022,\n    \"price\": 3200000\n  },\n  {\n    \"brand\": \"Lada\",\n    \"model\": \"Vesta\",\n    \"year\": 2021,\n    \"price\": 1200000\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 201\", () => pm.response.to.have.status(201));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.count).to.eql(3); });",
+                  "pm.collectionVariables.set(\"car_id\", responseData.items[0].id);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "bulk"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "86294154-3239-4181-b5fb-192c43442e08",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "281",
+                    "system": true
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"brand\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"year\": 2020,\n    \"price\": 1800000\n  },\n  {\n    \"brand\": \"Toyota\",\n    \"model\": \"Camry\",\n    \"year\": 2022,\n    \"price\": 3200000\n  },\n  {\n    \"brand\": \"Lada\",\n    \"model\": \"Vesta\",\n    \"year\": 2021,\n    \"price\": 1200000\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "CREATED",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "235"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"count\":3,\"items\":[{\"brand\":\"Toyota\",\"id\":12,\"model\":\"Corolla\",\"price\":1800000,\"year\":2020},{\"brand\":\"Toyota\",\"id\":13,\"model\":\"Camry\",\"price\":3200000,\"year\":2022},{\"brand\":\"Lada\",\"id\":14,\"model\":\"Vesta\",\"price\":1200000,\"year\":2021}]}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Список автомобилей",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/cars"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.count).to.eql(3); });"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "06830526-776a-4755-bb3d-20d6d97fdcd7",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "255"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"count\":3,\"items\":[{\"brand\":\"Toyota\",\"id\":12,\"model\":\"Corolla\",\"price\":1800000,\"year\":2020},{\"brand\":\"Toyota\",\"id\":13,\"model\":\"Camry\",\"price\":3200000,\"year\":2022},{\"brand\":\"Lada\",\"id\":14,\"model\":\"Vesta\",\"price\":1200000,\"year\":2021}],\"limit\":10,\"page\":1}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Один автомобиль",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/cars/{{car_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.brand).to.eql(\"Toyota\"); });"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "12"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "31399eb0-06fe-463c-9be7-3ffc361b877f",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "73"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"brand\":\"Toyota\",\"id\":12,\"model\":\"Corolla\",\"price\":1800000,\"year\":2020}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Поиск Toyota",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/cars?search=toyota"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.count).to.eql(2); });"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "toyota"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "5aabcf87-0de2-4fe0-839e-1ab60063fa4b",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "186"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"count\":2,\"items\":[{\"brand\":\"Toyota\",\"id\":12,\"model\":\"Corolla\",\"price\":1800000,\"year\":2020},{\"brand\":\"Toyota\",\"id\":13,\"model\":\"Camry\",\"price\":3200000,\"year\":2022}],\"limit\":10,\"page\":1}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Сортировка по цене",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/cars?sort=price&order=desc"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.items.map(x => x.price)).to.eql([3200000,1800000,1200000]); });"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "price"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "392773f2-232d-4349-aa86-68ca6f2c1364",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "255"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"count\":3,\"items\":[{\"brand\":\"Toyota\",\"id\":13,\"model\":\"Camry\",\"price\":3200000,\"year\":2022},{\"brand\":\"Toyota\",\"id\":12,\"model\":\"Corolla\",\"price\":1800000,\"year\":2020},{\"brand\":\"Lada\",\"id\":14,\"model\":\"Vesta\",\"price\":1200000,\"year\":2021}],\"limit\":10,\"page\":1}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Вторая страница",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/cars?page=2&limit=1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.items).to.have.lengthOf(1); pm.expect(responseData.count).to.eql(3); });"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "2"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "3e4e92d2-9891-4da3-8b8d-86a0d37761f4",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "112"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"count\":3,\"items\":[{\"brand\":\"Toyota\",\"id\":13,\"model\":\"Camry\",\"price\":3200000,\"year\":2022}],\"limit\":1,\"page\":2}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Средняя цена",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/cars/stats"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.average_price).to.be.closeTo(2066666.67,0.01); });"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "stats"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "22d3a3e6-5ecb-4960-96b3-66722576a749",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "39"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"average_price\":2066666.67,\"count\":3}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Связь по марке",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/cars/{{car_id}}/related"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.count).to.eql(1); pm.expect(responseData.items[0].model).to.eql(\"Camry\"); });"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "12",
+                    "related"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "4adb67ba-71fa-4817-9f42-1b66896b392f",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "93"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"count\":1,\"items\":[{\"brand\":\"Toyota\",\"id\":13,\"model\":\"Camry\",\"price\":3200000,\"year\":2022}]}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Создание автомобиля",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/cars",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brand\": \"Kia\",\n  \"model\": \"Rio\",\n  \"year\": 2019,\n  \"price\": 1400000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 201\", () => pm.response.to.have.status(201));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.collectionVariables.set(\"new_id\", responseData.id);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "c0b9bdd1-4a4a-495e-ab1c-dde841a1a963",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "74",
+                    "system": true
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"Kia\",\n  \"model\": \"Rio\",\n  \"year\": 2019,\n  \"price\": 1400000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "CREATED",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "66"
+                },
+                {
+                  "key": "Location",
+                  "value": "/cars/15"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"brand\":\"Kia\",\"id\":15,\"model\":\"Rio\",\"price\":1400000,\"year\":2019}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Полная замена",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/cars/{{new_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brand\": \"Kia\",\n  \"model\": \"Ceed\",\n  \"year\": 2020,\n  \"price\": 1600000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.model).to.eql(\"Ceed\"); });"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "15"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "fbff5bd1-53af-4770-8b03-97d4c35c7b25",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "75",
+                    "system": true
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"Kia\",\n  \"model\": \"Ceed\",\n  \"year\": 2020,\n  \"price\": 1600000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "67"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"brand\":\"Kia\",\"id\":15,\"model\":\"Ceed\",\"price\":1600000,\"year\":2020}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Частичное обновление",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/cars/{{new_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 1700000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.price).to.eql(1700000); pm.expect(responseData.model).to.eql(\"Ceed\"); });"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "15"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "059b1e3b-396a-4fed-950c-8030034660b4",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "22",
+                    "system": true
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"price\": 1700000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "67"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"brand\":\"Kia\",\"id\":15,\"model\":\"Ceed\",\"price\":1700000,\"year\":2020}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Нет обязательных полей",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/cars",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brand\": \"Toyota\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 400\", () => pm.response.to.have.status(400));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "e0d5c697-6363-4dd9-b693-cf2148db5eac",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "23",
+                    "system": true
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"Toyota\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "BAD REQUEST",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "72"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"error\": \"Поля brand, model, year и price обязательны\"}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Цена строкой",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/cars",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brand\": \"Toyota\",\n  \"model\": \"RAV4\",\n  \"year\": 2020,\n  \"price\": \"100\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 400\", () => pm.response.to.have.status(400));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "fa539390-1105-45ea-8f09-e5067b3e7af6",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "76",
+                    "system": true
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"Toyota\",\n  \"model\": \"RAV4\",\n  \"year\": 2020,\n  \"price\": \"100\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "BAD REQUEST",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "79"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"error\": \"price должна быть числом от 0 до 1000000000000\"}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Отрицательная цена",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/cars",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brand\": \"Toyota\",\n  \"model\": \"RAV4\",\n  \"year\": 2020,\n  \"price\": -1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 400\", () => pm.response.to.have.status(400));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "f0a25fdf-7117-485e-bffe-8f24f94b0d80",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "73",
+                    "system": true
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"Toyota\",\n  \"model\": \"RAV4\",\n  \"year\": 2020,\n  \"price\": -1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "BAD REQUEST",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "79"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"error\": \"price должна быть числом от 0 до 1000000000000\"}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Неверный год",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/cars",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brand\": \"Toyota\",\n  \"model\": \"RAV4\",\n  \"year\": 1800,\n  \"price\": 100\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 400\", () => pm.response.to.have.status(400));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "b6b766ac-83a0-449a-8b06-1636fa09f6df",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "74",
+                    "system": true
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"Toyota\",\n  \"model\": \"RAV4\",\n  \"year\": 1800,\n  \"price\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "BAD REQUEST",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "108"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"error\": \"year должен быть целым числом от 1886 до следующего года\"}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "PUT без всех полей",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/cars/{{new_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 400\", () => pm.response.to.have.status(400));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "15"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "95ae14bf-8930-40a8-959d-c02db4d32c0f",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "17",
+                    "system": true
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"price\": 10\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "BAD REQUEST",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "72"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"error\": \"Поля brand, model, year и price обязательны\"}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Чужое поле в PATCH",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/cars/{{new_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 400\", () => pm.response.to.have.status(400));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "15"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "3f887231-91a2-46da-8bcf-63c984100cd2",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "13",
+                    "system": true
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "BAD REQUEST",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "69"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"error\": \"Допустимые поля: brand, model, year, price\"}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Неверная страница",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/cars?page=0"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 400\", () => pm.response.to.have.status(400));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "3ce1b9c3-6de0-4170-82b5-91352f95d2ad",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "BAD REQUEST",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "91"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"error\": \"page должна быть положительной, limit - от 1 до 100\"}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Неверное поле сортировки",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/cars?sort=unknown"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 400\", () => pm.response.to.have.status(400));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "unknown"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "1807f54a-ac6a-4e42-9d08-a1ded9f2c8de",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "BAD REQUEST",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "89"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"error\": \"Некорректное поле сортировки или порядок\"}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Bulk с ошибкой",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/cars/bulk",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"brand\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"year\": 2020,\n    \"price\": 1800000\n  },\n  {\n    \"brand\": \"Lada\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 400\", () => pm.response.to.have.status(400));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "bulk"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "ff2f3cc2-6a9a-4c75-8a00-4d2f7263c87f",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "126",
+                    "system": true
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"brand\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"year\": 2020,\n    \"price\": 1800000\n  },\n  {\n    \"brand\": \"Lada\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "BAD REQUEST",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "72"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"error\": \"Поля brand, model, year и price обязательны\"}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "После ошибочного bulk",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/cars"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.count).to.eql(4); });"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "49f3a900-4ba2-4a9b-922d-22f3218b2a73",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "322"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"count\":4,\"items\":[{\"brand\":\"Toyota\",\"id\":12,\"model\":\"Corolla\",\"price\":1800000,\"year\":2020},{\"brand\":\"Toyota\",\"id\":13,\"model\":\"Camry\",\"price\":3200000,\"year\":2022},{\"brand\":\"Lada\",\"id\":14,\"model\":\"Vesta\",\"price\":1200000,\"year\":2021},{\"brand\":\"Kia\",\"id\":15,\"model\":\"Ceed\",\"price\":1700000,\"year\":2020}],\"limit\":10,\"page\":1}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Автомобиль не найден",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/cars/999999"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 404\", () => pm.response.to.have.status(404));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "999999"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "46e5457e-ff0f-49da-9898-be3535d302de",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "NOT FOUND",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "51"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"error\": \"Автомобиль не найден\"}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Удаление автомобиля",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/cars/{{new_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 204\", () => pm.response.to.have.status(204));",
+                  "pm.test(\"Пустое тело\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "15"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "790e88e5-f6fd-4c6a-8a4c-063db3fd8e73",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "DELETE"
+              },
+              "status": "NO CONTENT",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Повторное удаление",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/cars/{{new_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 404\", () => pm.response.to.have.status(404));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "15"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "e1152dab-d9cc-4b44-8fb0-80e42e5fe69a",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "DELETE"
+              },
+              "status": "NOT FOUND",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "51"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"error\": \"Автомобиль не найден\"}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Удаление всех автомобилей",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/cars"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 204\", () => pm.response.to.have.status(204));",
+                  "pm.test(\"Пустое тело\", () => pm.expect(pm.response.text()).to.eql(\"\"));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "c273f568-7fd2-4f39-bc43-e28ecd5316f9",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "DELETE"
+              },
+              "status": "NO CONTENT",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Статистика пустого списка",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/cars/stats"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 200\", () => pm.response.to.have.status(200));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Проверка ответа 1\", () => { pm.expect(responseData.count).to.eql(0); pm.expect(responseData.average_price).to.eql(0); });"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "stats"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "2555f96d-ed4a-4f34-940c-2a027e64868c",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  }
+                ],
+                "method": "GET"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "30"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"average_price\":0,\"count\":0}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "name": "Возврат исходных данных",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/cars/bulk",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"brand\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"year\": 2020,\n    \"price\": 1800000\n  },\n  {\n    \"brand\": \"Toyota\",\n    \"model\": \"Camry\",\n    \"year\": 2022,\n    \"price\": 3200000\n  },\n  {\n    \"brand\": \"Lada\",\n    \"model\": \"Vesta\",\n    \"year\": 2021,\n    \"price\": 1200000\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Статус 201\", () => pm.response.to.have.status(201));",
+                  "var responseData = pm.response.json();",
+                  "pm.test(\"Ответ JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Пример ответа",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "port": "3000",
+                  "path": [
+                    "cars",
+                    "bulk"
+                  ],
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "User-Agent",
+                    "value": "PostmanRuntime/7.39.1",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*",
+                    "system": true
+                  },
+                  {
+                    "key": "Cache-Control",
+                    "value": "no-cache",
+                    "system": true
+                  },
+                  {
+                    "key": "Postman-Token",
+                    "value": "cd330af0-a5e5-451a-a3d4-df147d6fc4a0",
+                    "system": true
+                  },
+                  {
+                    "key": "Host",
+                    "value": "127.0.0.1:3000",
+                    "system": true
+                  },
+                  {
+                    "key": "Accept-Encoding",
+                    "value": "gzip, deflate, br",
+                    "system": true
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive",
+                    "system": true
+                  },
+                  {
+                    "key": "Content-Length",
+                    "value": "281",
+                    "system": true
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"brand\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"year\": 2020,\n    \"price\": 1800000\n  },\n  {\n    \"brand\": \"Toyota\",\n    \"model\": \"Camry\",\n    \"year\": 2022,\n    \"price\": 3200000\n  },\n  {\n    \"brand\": \"Lada\",\n    \"model\": \"Vesta\",\n    \"year\": 2021,\n    \"price\": 1200000\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "CREATED",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "Werkzeug/3.1.9 Python/3.12.14"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Nov 2026 14:52:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "235"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "body": "{\"count\":3,\"items\":[{\"brand\":\"Toyota\",\"id\":16,\"model\":\"Corolla\",\"price\":1800000,\"year\":2020},{\"brand\":\"Toyota\",\"id\":17,\"model\":\"Camry\",\"price\":3200000,\"year\":2022},{\"brand\":\"Lada\",\"id\":18,\"model\":\"Vesta\",\"price\":1200000,\"year\":2021}]}\n",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
